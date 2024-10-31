@@ -1,38 +1,156 @@
-.App {
-  text-align: center;
+.div-container {
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.video-container {
+  background-color: #e0e0e0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.video-display {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.search-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px; /* Añade padding para dispositivos pequeños */
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+}
+
+.video-container-component {
+  height: 600px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  width: 800px;
+}
+
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
   color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.search-container button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.item-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: #d0f0c0;
+}
+
+.item-component:hover {
+  position: relative;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.icon-delete {
+  position: relative;
+  left: 700px;
+  bottom: 80px;
+}
+
+.add-icon {
+  margin: 30px;
+}
+
+.add-icon:hover {
+  position: relative;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1400px) {
+  .video-container {
+    grid-template-columns: 1fr; /* Stacks videos in a single column */
   }
-  to {
-    transform: rotate(360deg);
+
+  .video-container-component {
+    width: 100%; /* Full width on smaller screens */
+    height: auto; /* Dynamic height to fit content */
+    overflow-y: auto; /* Only scroll if necessary */
+  }
+
+  .icon-delete {
+    left: auto; /* Center or reset position */
+    right: -20px;
+    bottom: 70px;
   }
 }
+
+@media (max-width: 768px) {
+  .video-container-component {
+    height: 400px; /* Further reduce height on smaller screens */
+  }
+
+  .search-container input {
+    width: 100%; /* Full width for input on smaller screens */
+    margin-right: 16; /* Remove space between input and button */
+     
+  }
+
+  .search-container button {
+    width: 100%; /* Full width for button on smaller screens */
+  }
+
+  .icon-delete {
+    left: auto; /* Center or reset position */
+    right: -20px; /* Adjust for mobile */
+    bottom: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container-component {
+    height: 300px; /* Reduce height further on very small screens */
+  }
+
+  .search-container {
+    flex-direction: column; /* Stack elements vertically on extra small screens */
+    padding: 5px; /* Reduce padding on extra small screens */
+  }
+
+  .add-icon {
+    margin: 10px; /* Reduce margin on small screens */
+  }
+
+  .item-component {
+    width: 90%; /* Smaller width for better fit */
+  }
+
+}
+
+
